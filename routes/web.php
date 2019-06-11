@@ -11,15 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('posts', 'PostController@index');
-Route::get('posts/{Post}', 'PostController@show');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/', 'PostController@index')->name('index');
+Route::get('posts/{post}', 'PostController@show')->name('post');
+Route::get('create', 'PostController@create')->name('post.create');
+Route::get('posts/{post}/edit', 'PostController@edit')->name('post.edit');
 Route::post('posts', 'PostController@store');
 Route::put('posts/{post}', 'PostController@update');
-Route::delete('posts/{post}', 'PostController@delete');
+Route::delete('posts/{post}', 'PostController@delete')->name('post.delete');
