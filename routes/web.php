@@ -18,10 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('articles', 'ArticleController@index');
-    Route::get('articles/{article}', 'ArticleController@show');
-    Route::post('articles', 'ArticleController@store');
-    Route::put('articles/{article}', 'ArticleController@update');
-    Route::delete('articles/{article}', 'ArticleController@delete');
-});
+Route::get('posts', 'PostController@index');
+Route::get('posts/{Post}', 'PostController@show');
+Route::post('posts', 'PostController@store');
+Route::put('posts/{post}', 'PostController@update');
+Route::delete('posts/{post}', 'PostController@delete');
