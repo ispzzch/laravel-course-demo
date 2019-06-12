@@ -20,7 +20,11 @@
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('css/clean-blog.min.css') }}" rel="stylesheet">
-
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>

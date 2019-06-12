@@ -21,7 +21,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Demo Website 2019</p>
+          <p class="copyright text-muted">本網站僅做 demo 使用，請勿任意轉載分享，其素材取至網路上公開內容。</p>
         </div>
       </div>
     </div>
