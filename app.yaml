@@ -36,6 +36,7 @@ beta_settings:
   # e.g. "project:region:cloudsql-instance"
   cloud_sql_instances: laravel-course-demo
 handlers:
-  - url: /(.+\.(css|js))$
+  - url: /(.*\.(css|js|eot|svg|ttf|woff|woff2))$
     static_files: public/\1
-    upload: public/.+\.(css|js)$
+    upload: public/.*\.(css|js|eot|svg|ttf|woff|woff2)$
+
