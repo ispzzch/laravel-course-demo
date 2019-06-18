@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+    <style>
+        textarea {
+            min-height: 500px;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -52,6 +60,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('index') }}">List</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

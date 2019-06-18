@@ -24,7 +24,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         @foreach($posts as $post)
         <div class="post-preview">
-          <a href="{{ route('post', $post->id) }}">
+          <a href="{{ route('post.show', $post->id) }}">
             <h2 class="post-title">
               {{ $post->title }}
             </h2>
@@ -33,15 +33,15 @@
             <a href="#">{{ $post->user->name }}</a>
             on {{ date('d-m-Y', strtotime($post->created_at)) }}
             <!-- Authentication Links -->
-            @guest
-            @else
-            <a href="{{ route('post.create') }}">編輯</a>
-            <form method="POST" action="{{ route('post.delete', $post->id) }}">
-                {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-                <button type="submit" class="btn btn-outline-danger p-2">刪除</button>
-            </form>
-            @endguest
+              @guest
+              @else
+              <a href="{{ route('post.edit', $post->id) }}">編輯</a>
+              <form method="POST" action="{{ route('post.delete', $post->id) }}">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <button type="submit" class="btn btn-outline-danger p-2">刪除</button>
+              </form>
+              @endguest
           </p>
         </div>
         <hr>

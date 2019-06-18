@@ -24,6 +24,9 @@
     img {
       width: 100%;
     }
+    button {
+      display: inline-block;
+    }
   </style>
 </head>
 

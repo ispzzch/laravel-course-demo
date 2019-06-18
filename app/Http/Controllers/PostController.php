@@ -29,7 +29,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('show');
+        return view('create');
     }
 
     /**
@@ -41,7 +41,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $article = Post::create($request->all());
+        $post = Post::find($request->title);
+        if (!$post) {
+            auth()->user()->posts()->create($request->all());
+        }
+        return back();
     }
 
     /**
@@ -64,7 +68,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('show',compact('post'));
+        return view('edit',compact('post'));
     }
 
     /**
@@ -77,6 +81,12 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $result = $post->update($request->all());
+
+        if (!$result) {
+            return redirect()->route('post.index');
+        }
+        return redirect()->route('post.show', $post->id);
     }
 
     /**
